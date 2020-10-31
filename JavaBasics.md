@@ -864,280 +864,334 @@ public class ClassName {
         2. **reverse(** *list_name* **)** 
             - reverses the order of elements
             - Syntax :
-               
+
                 ```java
                 Collections.reverse(list_name);
                 ```
 
-  # Class and Object
+## Class and Object
 
-           - Syntax :
-                   public class MainClass {
-                       public static void main(String args[])
-                       {
-                           DummyClass1 dummy1 = new DummyClass();     //creating object of 'DummyClass'
-                           dummy.memberFunction();                     //calling methods of 'DummyClass'
-                       }
-                   }
+- Syntax :
 
-                   public class DummyClass {
-                       public static void  memberFunction()
-                       {
-                           System.out.println("Hi from DummyClass");
-                       }
-                   }
+    ```java
+    public class MainClass {
+        public static void main(String args[])
+        {
+            DummyClass1 dummy1 = new DummyClass();     //creating object of 'DummyClass'
+            dummy.memberFunction();                     //calling methods of 'DummyClass'
+        }
+    }
 
-           # Encapsulation
-               - wrapping of data members & member functions inside a class such that not all the data is publicly accessible
-               - the key idea here  is to use 'getter' & 'setter' methods for getting data from class and  setting data to class  data members and member functions resp.
-               - getter method - usually combines the various fields of class and returns
-               - setter method - don't return value (usually void) as it is used to set/update values of different fields of a class
-                   - eg.
-                       public class MainClass {
-                           public static void main(String args[])
-                           {
-                               DummyClass1 dummy1 = new DummyClass();
-                               dummy.setName("So", "han");     //Accessing set method
-                               dummy.getName();                //Accessing get method
-                           }
-                       }
+    public class DummyClass {
+        public static void  memberFunction()
+        {
+            System.out.println("Hi from DummyClass");
+        }
+    }
+    ```
 
-                       public class DummyClass {
-                           private String firstName;
-                           private String lastName;
+    - **Encapsulation**
+        - wrapping of data members & member functions inside a class such that not all the data is publicly accessible
+        - the key idea here  is to use 'getter' & 'setter' methods for getting data from class and  setting data to class  data members and member functions resp.
+        - ***getter method*** - usually combines the various fields of class and returns
+        - ***setter method*** - don't return value (usually void) as it is used to set/update values of different fields of a class
+        - eg.
+        
+            ```java
+            public class MainClass {
+                public static void main(String args[])
+                {
+                    DummyClass1 dummy1 = new DummyClass();
+                    dummy.setName("So", "han");     //Accessing set method
+                    dummy.getName();                //Accessing get method
+                }
+            }
 
-                           //getter method
-                           public static String getName()
-                           {
-                               return firstName + lastName;
-                           }
+            public class DummyClass {
+                private String firstName;
+                private String lastName;
 
-                           //Setter  method
-                           public void setName(String str1, String str2)
-                           {
-                                  firstName = str1;
-                                  lastName = str2;
-                           }
-                       }
+                //getter method
+                public static String getName()
+                {
+                    return firstName + lastName;
+                }
 
-            # Creating a List of Objects
-                   - Syntax :
-                               List<ClassName> object_name = new TypeOfList<ClassName>();
+                //Setter  method
+                public void setName(String str1, String str2)
+                {
+                        firstName = str1;
+                        lastName = str2;
+                }
+            }
+            ```
+    - **Creating a List of Objects**
+        - Syntax :
 
-                   - eg.
-                           public class MainClass{
-                               public static void main(String[] args)
-                               {
-                                   String [] firstName = {"Bat", "Iron", "Hanu"};
-                                   String [] lastName = {"man", "man","man"};
-                                   List<DummyClass> dummy_list = new ArrayList<DummyClass>();   //DummyClass is the custom type
-                                   for(int  i = 0; i<3; i++)
-                                   {
-                                       DummyClass obj = new DummyClass();
-                                       obj.setName(firstName[i], lastName[i]);
-                                       dummy_list.add(obj);
-                                   }
+            ```java
+            List<ClassName> object_name = new TypeOfList<ClassName>();
+            ```
 
-                                   for(DummyClass element: dummy_list )
-                                   {
-                                       System.out.println(element.getName());
-                                   }
-                               }
-                           }
+        - eg.
 
-                           class DummyClass {
-                               private String firstName;
-                               private String lastName;
+            ```java
+                public class MainClass{
+                    public static void main(String[] args)
+                    {
+                        String [] firstName = {"Bat", "Iron", "Hanu"};
+                        String [] lastName = {"man", "man","man"};
+                        List<DummyClass> dummy_list = new ArrayList<DummyClass>();   //DummyClass is the custom type
+                        for(int  i = 0; i<3; i++)
+                        {
+                            DummyClass obj = new DummyClass();
+                            obj.setName(firstName[i], lastName[i]);
+                            dummy_list.add(obj);
+                        }
 
-                               //getter method
-                               public String getName()
-                               {
-                                   return firstName + lastName;
-                               }
+                        for(DummyClass element: dummy_list )
+                        {
+                            System.out.println(element.getName());
+                        }
+                    }
+                }
 
-                               //Setter  method
-                               public void setName(String str1, String str2)
-                               {
-                                   firstName = str1;
-                                   lastName = str2;
-                               }
-                           }
+                class DummyClass {
+                    private String firstName;
+                    private String lastName;
 
-  #Note: Static methods are class methods, i.e. they can be accessed directly using ClassName of the Class in which they defined inside any other class - syntax for defining: public static return_type methodeName()
-  {
-  statement;
-  } - syntax for calling: ClassName.staticMethod()
+                    //getter method
+                    public String getName()
+                    {
+                        return firstName + lastName;
+                    }
 
-               Otherwise, we've to call method using instant method and to call such methods one  has to create object of the class where method  is to be called
-                   - syntax for calling : obj.methodeName();
-                   - syntax for definition: normal (w/o static keyword)
+                    //Setter  method
+                    public void setName(String str1, String str2)
+                    {
+                        firstName = str1;
+                        lastName = str2;
+                    }
+                }
+            ```
 
-  # Taking custom types as function arguments
+    - ***Note***: Static methods are class methods.
+        - i.e. they can be accessed directly using ClassName of the Class in which they defined inside any other class 
+        - Syntax for defining : 
 
-           - eg.
-                           public class MainClass{
-                               public static void main(String[] args)
-                               {
-                                   String [] firstName = {"Bat", "Iron", "Hanu"};
-                                   String [] lastName = {"man", "man","man"};
-                                   List<DummyClass> dummy_list = new ArrayList<DummyClass>();   //DummyClass is the custom type
-                                   for(int  i = 0; i<3; i++)
-                                   {
-                                       DummyClass obj = new DummyClass();
-                                       obj.setName(firstName[i], lastName[i]);
-                                       dummy_list.add(obj);
-                                   }
+            ```java
+            public static return_type methodeName()          
+            {
+                statement;
+            } 
+        - Syntax for calling :
 
-                                   DummyClass.getFullName(dummy_list);     //calling static function by passing entire list of objects
-                               }
-                           }
+            ```java
+            ClassName.staticMethod()
+            ```
 
-                           class DummyClass {
-                               private String firstName;
-                               private String lastName;
+            - Otherwise, we've to call method using instant method and to call such methods one  has to create object of the class where method  is to be called
+                - Syntax for calling :
 
-                               //getter method
-                               public String getName()
-                               {
-                                   return firstName + lastName;
-                               }
+                    ```java
+                    obj.methodeName();
+                    ```
+                - Syntax for definition: 
 
-                               //Setter  method
-                               public void setName(String str1, String str2)
-                               {
-                                   firstName = str1;
-                                   lastName = str2;
-                               }
+                    ```java
+                     normal (w/o static keyword)
+                    ```
 
-                               public static void getFullName(List<DummyClass> dummy_list)     //passing full list of objects
-                               {
-                                   for(DummyClass element: dummy_list)
-                                   {
-                                       System.out.println(element.getName());
-                                   }
-                               }
-                           }
+  - Taking custom types as function arguments
 
-  # Method Overloading
+    - eg.
+            
+        ```java
+        public class MainClass{
+        public static void main(String[] args)
+        {
+            String [] firstName = {"Bat", "Iron", "Hanu"};
+            String [] lastName = {"man", "man","man"};
 
-           - same function name but different args (different types or different no. of args)
-           - return_type  can be  same  or different, it won't matter.
+            List<DummyClass> dummy_list = new ArrayList<DummyClass>();   //DummyClass is the custom type
 
-           - eg. void methodOne(int x);                    - Method Overloading
-                 int methodOne(int x):                     - Not Method Overloading
-                 void methodOne(String x, int y);          - Method Overloading
-                 int methodOne(String x):                  - Method Overloading
-                 void methodOne(int x, int y, int z);      - Method Overloading
-                 int methodOne(int x, double w):           - Method Overloading
+            for(int  i = 0; i<3; i++)
+            {
+                DummyClass obj = new DummyClass();
+                obj.setName(firstName[i], lastName[i]);
+                dummy_list.add(obj);
+            }
 
-  # Method Overriding
+            DummyClass.getFullName(dummy_list);     //calling static function by passing entire list of objects
+        }
+    
 
-           - Changing the definition of the method in a derived class
-           - for method overriding just put @Override keyword above method definition in sub class
-           - syntax:
-                       @Override
-                       public return_type methodName()
-                       {
-                           statement;
-                       }
+        class DummyClass {
+            private String firstName;
+            private String lastName;
 
-  # pass by value & pass by reference
+            //getter method
+            public String getName()
+            {
+                return firstName + lastName;
+            }
 
-           - search more about this topic
+            //Setter  method
+            public void setName(String str1, String str2)
+            {
+                firstName = str1;
+                lastName = str2;
+            }
 
-  //Note: Most methods in Java are 'Virtual' by default except static methods and private methods
+            public static void getFullName(List<DummyClass> dummy_list)     //passing full list of objects
+            {
+                for(DummyClass element: dummy_list)
+                {
+                    System.out.println(element.getName());
+                }
+            }
+        }
+        ```
 
-  # Inheritance
+  - **Method Overloading**
 
-           1. Single Inheritance
-               - A single derived class is inherited from base class
-               -  syntax:
-                           public class Base {
-                               data_members & memberFunctions();
-                           }
+    - same function name but different args (different types or different no. of args)
+    - return_type  can be  same  or different, it won't matter.
 
-                           public class derived extends  Base {
-                               statement;
-                           }
+    - eg. 
+        ```java
+        void methodOne(int x);  // Method Overloading
 
-           2.
+        int methodOne(int x):   // Not Method Overloading
 
+        void methodOne(String x, int y);    // Method Overloading
 
+        int methodOne(String x);    // Method Overloading
 
-          # Abstract Classes
-               -  Abstract class is class of something that doesn't exist... it is more like a class of characteristics
-               - syntax:
-                           public abstract class ClassName {
-                               body;
-                           }
+        void methodOne(int x, int y, int z);   // Method Overloading
 
-          # Abstract Methods
-               - when a method  is made abstract it cannot be defined or  have a body. It's designed to be overridden
-               - ends with ';' and is usually declared inside abstract class
-               - syntax:
-                           public abstract void methodName();
+        int methodOne(int x, double w):  // Method Overloading
+        ```
 
-          # Polymorphism
-               - important  stuff
+  ## Method Overriding
 
-          # Constructors
-               - Constructor is a special member function which is used to initialise a object
-               - gets invoked automatically when object is created
-               - if parameterised constructor is defined then default constructor should be compulsorily defined
-               - always public
-               - name same as class name
+    - Changing the definition of the method in a derived class
+    - for method overriding just put @Override keyword above method definition in sub class
+    - Syntax :
 
-               1. Default Constructor
-                   - syntax:
-                               public ClassName()
-                               {
-                                   statement;
-                               }
+        ```java
+            @Override
+            public return_type methodName()
+            {
+                statement;
+            }
+        ```
 
-               2. Parameterised Constructor
-                   - syntax:
-                               public ClassName(data_type var_name1, data_type var_name2)
-                               {
-                                   statement;
-                               }
-                   - syntax to call parameterised constructor:
-                       ClassName obj = new ClassName(arg1,arg2);  //pass the args to the parameterised constructor
+  ## Pass by value & Pass by reference
 
-               3. Copy Constructor
+    - search more about this topic
 
-           # Super keyword
-               - used to access/invoke  members of base class from derived class
-               - syntax:
-                       super.methodeName();        // that methodName can be replaced by any particular data_member or memberFunction of base class
+  ### ***Note***: Most methods in Java are 'Virtual' by default except static methods and private methods
 
-            # Interface
-               - interfaces are very similar to classes but interfaces are specifically used to define behaviour and  are then implemented
-               -
+  - ### **Inheritance**
 
+    1. Single Inheritance
+        - A single derived class is inherited from base class
+        - Syntax :
 
-            # final methods
-               - prevents overriding of a method in further derived classes
-               - syntax:
-                           public final return_type methodName()
-                           {
-                               statement;
-                           }
+            ```java
+                public class Base {
+                    data_members & memberFunctions();
+                }
 
-            # final class
-               - prevents class from extending further
-               - syntax:
-                       public final class ClassName{
-                           body;
-                       }
+                public class derived extends  Base {
+                    statement;
+                }
+            ```
 
-             # enumeration - learn more about this
+  - **Abstract Classes**
+    -  Abstract class is class of something that doesn't exist... it is more like a class of characteristics
+    - Syntax :
 
-  \*/
+        ```java
+        public abstract class ClassName {
+            body;
+        }
+        ```
 
-  }
+  - **Abstract Methods**
+    - when a method  is made abstract it cannot be defined or  have a body. It's designed to be overridden
+    - ends with ';' and is usually declared inside abstract class
+    - Syntax :
 
-  ```
+        ```java
+        public abstract void methodName();
+        ```
 
-  ```
+  - **Polymorphism**
+    - important  stuff
 
-}
+  - **Constructors**
+    - Constructor is a special member function which is used to initialise a object
+    - gets invoked automatically when object is created
+    - if parameterised constructor is defined then default constructor should be compulsorily defined
+    - always public
+    - name same as class name
+
+    1. **Default Constructor**
+        - Syntax :
+
+            ```java
+            public ClassName()
+            {
+                statement;
+            }
+            ```
+
+    2. **Parameterised Constructor**
+        - Syntax :
+            ```java
+            public ClassName(data_type var_name1, data_type var_name2)
+            {
+                statement;
+            }
+            ```
+        - Syntax to call parameterised constructor :
+            ```java
+                ClassName obj = new ClassName(arg1,arg2);  //pass the args to the parameterised constructor
+            ```
+
+    3. **Copy Constructor**
+
+  - **Super keyword**
+    - used to access/invoke  members of base class from derived class
+    - Syntax :
+        
+        ```java
+        super.methodeName();        // that methodName can be replaced by any particular data_member or memberFunction of base class
+        ```
+
+  - **Interface**
+    - interfaces are very similar to classes but interfaces are specifically used to define behaviour and  are then implemented
+               
+  - **final methods**
+    - prevents overriding of a method in further derived classes
+    - syntax:
+
+        ```java
+        public final return_type methodName()
+        {
+            statement;
+        }
+        ```
+  - **final class**
+    - prevents class from extending further
+    - Syntax :
+        
+        ```java
+        public final class ClassName{
+            body;
+        }
+        ```
+
+  - **Enumeration**
+    - learn more about this
