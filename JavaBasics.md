@@ -536,449 +536,608 @@ public class ClassName {
 
 - **1-D Arrays**
 
+  - Syntax :
+
+    ```java
+    data_type[] array_name = new data_type[size];       //for user input
+
+                        OR
+
+    data_type [] array_name = {value1, value2, ...};     //hardcoding values
+    ```
+
+  - **Arrays.toString(** _array_name_ **)**
+
+    - to display values/status of array
+    - **_Note_**: _import java.util.Arrays;_ to use the this function
     - Syntax :
 
-        ```java
-        data_type[] array_name = new data_type[size];       //for user input
+      ```java
+          System.out.println(Arrays.toString(array_name));
+      ```
 
-                            OR
+    - eg.
+      ```java
+      Scanner input = new Scanner(System.in);
+      int size = input.nextInt();
+      int [] array = new int[size];
+      for(int i = 0; i < size; i++)
+      {
+          int temp = input.nextInt();
+          array[i] = temp;
+      }
+      ```
 
-        data_type [] array_name = {value1, value2, ...};     //hardcoding values
-        ```
+  - There are predefined useful methods for sorting arrays and various other things in Arrays package, just make sure to import following
 
-    - **Arrays.toString(** *array_name* **)**
-        - to display values/status of array 
-        - ***Note***: *import java.util.Arrays;* to use the this function
-        - Syntax : 
-            ```java
-                System.out.println(Arrays.toString(array_name));
-            ```
+    ```java
+        import java.util.Arrays;
+        import java.util.ArrayList;
+    ```
 
-        -  eg.
-            ```java
-            Scanner input = new Scanner(System.in);
-            int size = input.nextInt();
-            int [] array = new int[size];
-            for(int i = 0; i < size; i++)
-            {
-                int temp = input.nextInt();
-                array[i] = temp;
-            }
-            ```
+    - Here are few frequently used functions
 
-    # We've predefined useful methods for sorting arrays and various other things in Arrays package,
-        just make sure to import 'java.util.Arrays' & 'java.util.ArrayList'
-        - eg.
-                1. Arrays.sort(array_name);  - sorts the array in ascending order (Quick sort)
+      1. **Array Sort**
 
-                2. Arrays.parallelSort(array_name); - sorts array in ascending order
+         - sorts the array in ascending order (Quick sort)
+         - Syntax :
 
-                3. Arrays.equals(array_name1, array_name2) - checks if the 2 arrays are equal and returns true if they're
-                    - eg. if(Arrays.equals(array_name1, array_name2))
-                            {
-                                System.out.println("Equal!!")
-                            }
+           ```java
+           Arrays.sort(array_name);
+           ```
 
-                4. Arrays.fill(array_name, value) - replaces all the elements of array with fill value
-                    - eg. String [] array = new String[10];
-                            Arrays.fill(array, "");       // empty character
+      2. **Array Parallel Sort**
 
-                5. Arrays.asList(array_name) - converts array into a list
-                    - eg. List<DataTypeClass> list_name = Arrays.asList(array_name);
-                    //Note: data_type should be same  as that of the array and don't forget to import 'java.util.List'
+         - sorts array in ascending order
+         - Syntax :
 
-                  2. 2-D Arrays
-                    - syntax:
-                                data_type[][] array_name = new data_type[row_size][col_size];       //for use input
+           ```java
+           Arrays.parallelSort(array_name);
+           ```
 
-                                                        OR
+      3. **Array Equals**
 
-                                data_type [] array_name = {{col1}, {col2}, ...};     //hardcoding values
+         - checks if the 2 arrays are equal and returns true if they're equal
+         - Syntax :
 
-                        Arrays.toString(array_name) - to display values/status of array
-                            //Note: import java.util.Arrays; to use  this function
-                            - eg. System.out.println(Arrays.deepToString(array_name));
+           ```java
+           Arrays.equals(array_name1, array_name2)
+           ```
 
-                     -  eg.
-                            Scanner input = new Scanner(System.in);
-                            int row_size = input.nextInt();
-                            int col_size = input.nextInt();
-                            int[][] array = new int[row_size][col_size];
-                            for(int row = 0; row < row_size; row++)
-                            {
-                                 for(int col = 0; col < col_size; col++)
-                                 {
-                                    int temp = input.nextInt();
-                                    array[col] = temp;
-                                 }
-                            }
+         - eg.
+           ```java
+            if(Arrays.equals(array_name1, array_name2))
+               {
+                   System.out.println("Equal!!")
+               }
+           ```
 
-                       //Note: In the case of 2-D Arrays 'length' property alone gives the no. of rows,
-                                to find the no. of cols use
-                                                   'array_name[index].length'
-                                Here, index == index of row
+      4. **Array Fill**
 
-                #  Array List
-                    - list is  very similar to array but it's size can be  dynamically increased / decreased unlike  arrays which is  fixed  when declared
-                    //Note: import java.util.List; when using list (mandatory)
-                            - We don't need to specify the size of the list while declaring
-                        - syntax:
-                                    List <DataTypeClass> list_name = new TypeOfList<DataTypeClass>();
+         - replaces all the elements of array with fill value
+         - Syntax :
 
-                                    //Note: There are many type of lists like ArrayList & LinkedList and depending on the list you choose, you should specify the 'TypeOfList' and  import 'java.util.TypeOfList;'
-                                            here, we're referring to ArrayList
-                                            So,     import java.util.ArrayList;
-                                                    List<DataTypeClass> list_name = new ArrayList<DataTypeClass>();
+           ```java
+           Arrays.fill(array_name, value);
+           ```
 
+         - eg.
+           ```java
+           String [] array = new String[10];
+           Arrays.fill(array, "");       // empty character
+           ```
 
-                        Accessing elements of list
-                            - Similar to arrays  , list element can be accessed by
-                                    syntax:
-                                                list_name[index];
+      5. **Array asList**
 
-                        Displaying whole list at once
-                            - Actually there are many ways of doing this but the following is pretty straightforward
-                                - syntax:
-                                            System.out.println(Arrays.toString(list_name.toArray()));
+         - converts array into a list
+         - Syntax :
 
-                                - Basically, the above  syntax  first converts list to array using method 'toArray()' and then uses 'toString()' to display the entire array
+           ```java
+           Arrays.asList(array_name);
+           ```
 
-                        Iterating through a list
-                            //Note: for each loop can be used here
-                            - eg. List<Integer> list_name = Arrays.asList(5, 3, 2, 6, 3);       // initializing list values using arrays
-                                  for(int i = 0; i < list_name.size(); i++)
-                                  {
-                                        list_name.set(i, list_name.get(i) * 10);    //Updating list elements, i.e. multiplying by 10
-                                        System.out.println(list_name.get(i));   // displaying list elements
-                                  }
+         - eg.
 
-                        Nested Lists
-                            - syntax:
-                                        List<List<DataTypeClass>> main_list = new ArrayList<List<DataTypeClass>>();
+           ```java
+           List<DataTypeClass> list_name = Arrays.asList(array_name);
 
-                            - eg. List<List<Integer>> main_list = new ArrayList<List<Integer>>();
-                                  main_list.add(Arrays.asList(5, 3, 2, 6, 3));
-                                  main_list.add(Arrays.asList(8, 3, 4, 2, 4));
-                                  main_list.add(Arrays.asList(45, 57, 68, 97, 34));
+           //Note: data_type should be same  as that of the array and don't forget to import 'java.util.List'
+           ```
 
-                                  // to iterate through the Nested Lists
-                                  //Note: The nested list is of the type 'List<integer>' and not simply 'int'
-                                  for(List<Integer> list_no : main_list)        //Accessing Nested Lists from main_list
-                                  {
-                                        for(int element : list_no)              //Accessing elements of nested list
-                                        {
-                                            System.out.print(element + "\t");
-                                        }
-                                        System.out.println();
-                                  }
+- **2-D Arrays**
 
-                        Converting List to Array
-                            - syntax:
-                                        int[] array_name = new int[list_name.size()];
+  - Syntax :
 
-                                        for(int i = 0; i < list_name.size(); i++ )
-                                        {
-                                            array_name[i] = list_name.get(i);
-                                        }
+    ```java
+        data_type[][] array_name = new data_type[row_size][col_size];       //for use input
 
-                                        System.out.println(Arrays.toString(array_name));
+                                OR
 
-                        - List methods
+        data_type [] array_name = {{col1}, {col2}, ...};     //hardcoding values
+    ```
 
-                            1.  add(value) / add(index, value); - appends element to the list /  at specified index
-                                - syntax:  list_name.add(value); / list_name.add(index, value);
+  - Arrays.toString(array_name)
 
-                            2.  get(index); - returns the element at specified index
-                                - syntax:  list_name.get(index);
+    - to display values/status of array
+    - **_Note:_** _import java.util.Arrays;_ to use this function
+    - eg.
 
-                            3.  set(index, value); - updates the specified index with passed value
-                                - syntax:  list_name.set(index, value);
+      ```java
+      System.out.println(Arrays.deepToString(array_name));
+      ```
 
-                            4.  size(); - returns the size of the array
-                                - syntax:  list_name.size();
+  - eg. of a 2-D array
 
-                            5.  isEmpty() - checks if the list is  empty or not by returning boolean value
-                                - syntax: list.isEmpty();
-
-                            6.  remove(index) - removes element from the list present at specified index
-                                - syntax: list.remove(index);
-
-                            7.  clear() - removes everything from the list
-                                - syntax: list_name.clear();
-
-                          # Using 'Collections' tool properties on list
-                            1. sort(list_name) - sorts the list in ascending order
-                                - syntax:   Collections.sort(list_name);
-
-                            2. reverse(list_name) - reverses the order of elements
-                                - syntax:   Collections.reverse(list_name);
-
-    # Class and Object
-
-            - syntax:
-                    public class MainClass {
-                        public static void main(String args[])
-                        {
-                            DummyClass1 dummy1 = new DummyClass();     //creating object of 'DummyClass'
-                            dummy.memberFunction();                     //calling methods of 'DummyClass'
-                        }
-                    }
-
-                    public class DummyClass {
-                        public static void  memberFunction()
-                        {
-                            System.out.println("Hi from DummyClass");
-                        }
-                    }
-
-            # Encapsulation
-                - wrapping of data members & member functions inside a class such that not all the data is publicly accessible
-                - the key idea here  is to use 'getter' & 'setter' methods for getting data from class and  setting data to class  data members and member functions resp.
-                - getter method - usually combines the various fields of class and returns
-                - setter method - don't return value (usually void) as it is used to set/update values of different fields of a class
-                    - eg.
-                        public class MainClass {
-                            public static void main(String args[])
-                            {
-                                DummyClass1 dummy1 = new DummyClass();
-                                dummy.setName("So", "han");     //Accessing set method
-                                dummy.getName();                //Accessing get method
-                            }
-                        }
-
-                        public class DummyClass {
-                            private String firstName;
-                            private String lastName;
-
-                            //getter method
-                            public static String getName()
-                            {
-                                return firstName + lastName;
-                            }
-
-                            //Setter  method
-                            public void setName(String str1, String str2)
-                            {
-                                   firstName = str1;
-                                   lastName = str2;
-                            }
-                        }
-
-             # Creating a List of Objects
-                    - syntax:
-                                List<ClassName> object_name = new TypeOfList<ClassName>();
-
-                    - eg.
-                            public class MainClass{
-                                public static void main(String[] args)
-                                {
-                                    String [] firstName = {"Bat", "Iron", "Hanu"};
-                                    String [] lastName = {"man", "man","man"};
-                                    List<DummyClass> dummy_list = new ArrayList<DummyClass>();   //DummyClass is the custom type
-                                    for(int  i = 0; i<3; i++)
-                                    {
-                                        DummyClass obj = new DummyClass();
-                                        obj.setName(firstName[i], lastName[i]);
-                                        dummy_list.add(obj);
-                                    }
-
-                                    for(DummyClass element: dummy_list )
-                                    {
-                                        System.out.println(element.getName());
-                                    }
-                                }
-                            }
-
-                            class DummyClass {
-                                private String firstName;
-                                private String lastName;
-
-                                //getter method
-                                public String getName()
-                                {
-                                    return firstName + lastName;
-                                }
-
-                                //Setter  method
-                                public void setName(String str1, String str2)
-                                {
-                                    firstName = str1;
-                                    lastName = str2;
-                                }
-                            }
-
-    #Note: Static methods are class methods, i.e. they can be accessed directly using ClassName of the Class in which they defined inside any other class - syntax for defining: public static return_type methodeName()
+    ```java
+    Scanner input = new Scanner(System.in);
+    int row_size = input.nextInt();
+    int col_size = input.nextInt();
+    int[][] array = new int[row_size][col_size];
+    for(int row = 0; row < row_size; row++)
     {
-    statement;
-    } - syntax for calling: ClassName.staticMethod()
-
-                Otherwise, we've to call method using instant method and to call such methods one  has to create object of the class where method  is to be called
-                    - syntax for calling : obj.methodeName();
-                    - syntax for definition: normal (w/o static keyword)
-
-    # Taking custom types as function arguments
-
-            - eg.
-                            public class MainClass{
-                                public static void main(String[] args)
-                                {
-                                    String [] firstName = {"Bat", "Iron", "Hanu"};
-                                    String [] lastName = {"man", "man","man"};
-                                    List<DummyClass> dummy_list = new ArrayList<DummyClass>();   //DummyClass is the custom type
-                                    for(int  i = 0; i<3; i++)
-                                    {
-                                        DummyClass obj = new DummyClass();
-                                        obj.setName(firstName[i], lastName[i]);
-                                        dummy_list.add(obj);
-                                    }
-
-                                    DummyClass.getFullName(dummy_list);     //calling static function by passing entire list of objects
-                                }
-                            }
-
-                            class DummyClass {
-                                private String firstName;
-                                private String lastName;
-
-                                //getter method
-                                public String getName()
-                                {
-                                    return firstName + lastName;
-                                }
-
-                                //Setter  method
-                                public void setName(String str1, String str2)
-                                {
-                                    firstName = str1;
-                                    lastName = str2;
-                                }
-
-                                public static void getFullName(List<DummyClass> dummy_list)     //passing full list of objects
-                                {
-                                    for(DummyClass element: dummy_list)
-                                    {
-                                        System.out.println(element.getName());
-                                    }
-                                }
-                            }
-
-    # Method Overloading
-
-            - same function name but different args (different types or different no. of args)
-            - return_type  can be  same  or different, it won't matter.
-
-            - eg. void methodOne(int x);                    - Method Overloading
-                  int methodOne(int x):                     - Not Method Overloading
-                  void methodOne(String x, int y);          - Method Overloading
-                  int methodOne(String x):                  - Method Overloading
-                  void methodOne(int x, int y, int z);      - Method Overloading
-                  int methodOne(int x, double w):           - Method Overloading
-
-    # Method Overriding
-
-            - Changing the definition of the method in a derived class
-            - for method overriding just put @Override keyword above method definition in sub class
-            - syntax:
-                        @Override
-                        public return_type methodName()
-                        {
-                            statement;
-                        }
-
-    # pass by value & pass by reference
-
-            - search more about this topic
-
-    //Note: Most methods in Java are 'Virtual' by default except static methods and private methods
-
-    # Inheritance
-
-            1. Single Inheritance
-                - A single derived class is inherited from base class
-                -  syntax:
-                            public class Base {
-                                data_members & memberFunctions();
-                            }
-
-                            public class derived extends  Base {
-                                statement;
-                            }
-
-            2.
-
-
-
-           # Abstract Classes
-                -  Abstract class is class of something that doesn't exist... it is more like a class of characteristics
-                - syntax:
-                            public abstract class ClassName {
-                                body;
-                            }
-
-           # Abstract Methods
-                - when a method  is made abstract it cannot be defined or  have a body. It's designed to be overridden
-                - ends with ';' and is usually declared inside abstract class
-                - syntax:
-                            public abstract void methodName();
-
-           # Polymorphism
-                - important  stuff
-
-           # Constructors
-                - Constructor is a special member function which is used to initialise a object
-                - gets invoked automatically when object is created
-                - if parameterised constructor is defined then default constructor should be compulsorily defined
-                - always public
-                - name same as class name
-
-                1. Default Constructor
-                    - syntax:
-                                public ClassName()
-                                {
-                                    statement;
-                                }
-
-                2. Parameterised Constructor
-                    - syntax:
-                                public ClassName(data_type var_name1, data_type var_name2)
-                                {
-                                    statement;
-                                }
-                    - syntax to call parameterised constructor:
-                        ClassName obj = new ClassName(arg1,arg2);  //pass the args to the parameterised constructor
-
-                3. Copy Constructor
-
-            # Super keyword
-                - used to access/invoke  members of base class from derived class
-                - syntax:
-                        super.methodeName();        // that methodName can be replaced by any particular data_member or memberFunction of base class
-
-             # Interface
-                - interfaces are very similar to classes but interfaces are specifically used to define behaviour and  are then implemented
-                -
-
-
-             # final methods
-                - prevents overriding of a method in further derived classes
-                - syntax:
-                            public final return_type methodName()
-                            {
-                                statement;
-                            }
-
-             # final class
-                - prevents class from extending further
-                - syntax:
-                        public final class ClassName{
-                            body;
-                        }
-
-              # enumeration - learn more about this
-
-    \*/
-
+            for(int col = 0; col < col_size; col++)
+            {
+            int temp = input.nextInt();
+            array[col] = temp;
+            }
     }
     ```
+
+  - **_Note_**: In case of 2-D Arrays 'length' property alone gives the no. of rows, to find the no. of cols use
+
+    ```java
+        array_name[index].length
+
+        // Here, index == index of row
+    ```
+
+- **Array List**
+
+  - list is very similar to array but it's size can be dynamically increased / decreased unlike arrays which is fixed when declared
+  - **_Note_**: _import java.util.List;_ when using list (mandatory)
+  - We don't need to specify the size of the list while declaring
+  - Syntax :
+
+    ```java
+        List <DataTypeClass> list_name = new TypeOfList<DataTypeClass>();
+    ```
+
+  - **_Note_**: There are many type of lists like _ArrayList_ & _LinkedList_ and depending on the list you choose, you should specify the '_TypeOfList_' and _import 'java.util.TypeOfList;_ - Here, we're refering to ArrayList. So,
+
+    ```java
+    import java.util.ArrayList;
+
+    List<DataTypeClass> list_name = new ArrayList<DataTypeClass>();
+    ```
+
+  - **Accessing elements of list**
+
+    - Similar to arrays , list element can be accessed by
+    - Syntax :
+
+      ```java
+          list_name[index];
+      ```
+
+  - **Displaying whole list at once**
+
+    - Actually there are many ways of doing this but the following is pretty straightforward
+    - Syntax :
+
+      ```java
+              System.out.println(Arrays.toString(list_name.toArray()));
+      ```
+
+      - Basically, the above syntax first converts list to array using method 'toArray()' and then uses 'toString()' to display the entire array
+
+    - **Iterating through a list**
+
+      - **_Note_**: for each loop can be used here
+      - eg.
+
+        ```java
+        List<Integer> list_name = Arrays.asList(5, 3, 2, 6, 3);       // initializing list values using arrays
+
+        for(int i = 0; i < list_name.size(); i++)
+        {
+            list_name.set(i, list_name.get(i) * 10);    //Updating list elements, i.e. multiplying by 10
+            System.out.println(list_name.get(i));   // displaying list elements
+        }
+        ```
+
+    - **Nested Lists**
+
+      - Syntax :
+
+        ```java
+            List<List<DataTypeClass>> main_list = new ArrayList<List<DataTypeClass>>();
+
+            List<List<Integer>> main_list = new ArrayList<List<Integer>>();
+
+            main_list.add(Arrays.asList(5, 3, 2, 6, 3));
+            main_list.add(Arrays.asList(8, 3, 4, 2, 4));
+            main_list.add(Arrays.asList(45, 57, 68, 97, 34));
+        ```
+
+      - To **iterate through the Nested Lists**
+
+        - **_Note_**: The nested list is of the type 'List<integer>' and not simply 'int'
+        - Syntax :
+
+          ```java
+          for(List<Integer> list_no : main_list)        //Accessing Nested Lists from main_list
+          {
+              for(int element : list_no)              //Accessing elements of nested list
+              {
+                  System.out.print(element + "\t");
+              }
+
+              System.out.println();
+          }
+          ```
+
+    - **Converting List to Array**
+        - Syntax :
+
+            ```java
+            int[] array_name = new int[list_name.size()];
+
+            for(int i = 0; i < list_name.size(); i++ )
+            {
+                array_name[i] = list_name.get(i);
+            }
+
+            System.out.println(Arrays.toString(array_name));
+            ```
+
+    - **List Methods**
+
+        1.  **add(** *value* **)** OR **add(** *index* **,** *value* **)** 
+            - appends element to the list at specified index
+            - Syntax :  
+
+                ```java
+                list_name.add(value); 
+                
+                        // OR
+
+                list_name.add(index, value);
+                ```
+
+        2.  **get(** *index* **)** 
+            - returns the element at specified index
+            - Syntax :
+
+                ```java
+                list_name.get(index);
+                ```
+
+        3.  **set(** *index* **,** *value* **)** 
+            - updates the specified index with passed value
+            - Syntax :  
+                    
+                ```java
+                list_name.set(index, value);
+                ```
+
+        4.  **size()** 
+            - returns the size of the array
+            - Syntax :
+
+                ```java
+                list_name.size();
+                ```
+
+        5.  **isEmpty()**
+            - checks if the list is  empty or not by returning boolean value
+            - Syntax :
+
+                ```java
+                list.isEmpty();
+                ```
+
+        6.  **remove(** *index* **)** 
+            - removes element from the list present at specified index
+            - Syntax : 
+                
+                ```java
+                list.remove(index);
+                ```
+
+        7.  **clear()** 
+            - removes everything from the list
+            - Syntax : 
+                
+                ```java
+                list_name.clear();
+                ```
+
+    - Using 'Collections' tool properties on list
+        1. **sort(** *list_name* **)** 
+            - sorts the list in ascending order
+            - Syntax :   
+                
+                ```java
+                Collections.sort(list_name);
+                ```
+
+        2. **reverse(** *list_name* **)** 
+            - reverses the order of elements
+            - Syntax :
+               
+                ```java
+                Collections.reverse(list_name);
+                ```
+
+  # Class and Object
+
+           - Syntax :
+                   public class MainClass {
+                       public static void main(String args[])
+                       {
+                           DummyClass1 dummy1 = new DummyClass();     //creating object of 'DummyClass'
+                           dummy.memberFunction();                     //calling methods of 'DummyClass'
+                       }
+                   }
+
+                   public class DummyClass {
+                       public static void  memberFunction()
+                       {
+                           System.out.println("Hi from DummyClass");
+                       }
+                   }
+
+           # Encapsulation
+               - wrapping of data members & member functions inside a class such that not all the data is publicly accessible
+               - the key idea here  is to use 'getter' & 'setter' methods for getting data from class and  setting data to class  data members and member functions resp.
+               - getter method - usually combines the various fields of class and returns
+               - setter method - don't return value (usually void) as it is used to set/update values of different fields of a class
+                   - eg.
+                       public class MainClass {
+                           public static void main(String args[])
+                           {
+                               DummyClass1 dummy1 = new DummyClass();
+                               dummy.setName("So", "han");     //Accessing set method
+                               dummy.getName();                //Accessing get method
+                           }
+                       }
+
+                       public class DummyClass {
+                           private String firstName;
+                           private String lastName;
+
+                           //getter method
+                           public static String getName()
+                           {
+                               return firstName + lastName;
+                           }
+
+                           //Setter  method
+                           public void setName(String str1, String str2)
+                           {
+                                  firstName = str1;
+                                  lastName = str2;
+                           }
+                       }
+
+            # Creating a List of Objects
+                   - Syntax :
+                               List<ClassName> object_name = new TypeOfList<ClassName>();
+
+                   - eg.
+                           public class MainClass{
+                               public static void main(String[] args)
+                               {
+                                   String [] firstName = {"Bat", "Iron", "Hanu"};
+                                   String [] lastName = {"man", "man","man"};
+                                   List<DummyClass> dummy_list = new ArrayList<DummyClass>();   //DummyClass is the custom type
+                                   for(int  i = 0; i<3; i++)
+                                   {
+                                       DummyClass obj = new DummyClass();
+                                       obj.setName(firstName[i], lastName[i]);
+                                       dummy_list.add(obj);
+                                   }
+
+                                   for(DummyClass element: dummy_list )
+                                   {
+                                       System.out.println(element.getName());
+                                   }
+                               }
+                           }
+
+                           class DummyClass {
+                               private String firstName;
+                               private String lastName;
+
+                               //getter method
+                               public String getName()
+                               {
+                                   return firstName + lastName;
+                               }
+
+                               //Setter  method
+                               public void setName(String str1, String str2)
+                               {
+                                   firstName = str1;
+                                   lastName = str2;
+                               }
+                           }
+
+  #Note: Static methods are class methods, i.e. they can be accessed directly using ClassName of the Class in which they defined inside any other class - syntax for defining: public static return_type methodeName()
+  {
+  statement;
+  } - syntax for calling: ClassName.staticMethod()
+
+               Otherwise, we've to call method using instant method and to call such methods one  has to create object of the class where method  is to be called
+                   - syntax for calling : obj.methodeName();
+                   - syntax for definition: normal (w/o static keyword)
+
+  # Taking custom types as function arguments
+
+           - eg.
+                           public class MainClass{
+                               public static void main(String[] args)
+                               {
+                                   String [] firstName = {"Bat", "Iron", "Hanu"};
+                                   String [] lastName = {"man", "man","man"};
+                                   List<DummyClass> dummy_list = new ArrayList<DummyClass>();   //DummyClass is the custom type
+                                   for(int  i = 0; i<3; i++)
+                                   {
+                                       DummyClass obj = new DummyClass();
+                                       obj.setName(firstName[i], lastName[i]);
+                                       dummy_list.add(obj);
+                                   }
+
+                                   DummyClass.getFullName(dummy_list);     //calling static function by passing entire list of objects
+                               }
+                           }
+
+                           class DummyClass {
+                               private String firstName;
+                               private String lastName;
+
+                               //getter method
+                               public String getName()
+                               {
+                                   return firstName + lastName;
+                               }
+
+                               //Setter  method
+                               public void setName(String str1, String str2)
+                               {
+                                   firstName = str1;
+                                   lastName = str2;
+                               }
+
+                               public static void getFullName(List<DummyClass> dummy_list)     //passing full list of objects
+                               {
+                                   for(DummyClass element: dummy_list)
+                                   {
+                                       System.out.println(element.getName());
+                                   }
+                               }
+                           }
+
+  # Method Overloading
+
+           - same function name but different args (different types or different no. of args)
+           - return_type  can be  same  or different, it won't matter.
+
+           - eg. void methodOne(int x);                    - Method Overloading
+                 int methodOne(int x):                     - Not Method Overloading
+                 void methodOne(String x, int y);          - Method Overloading
+                 int methodOne(String x):                  - Method Overloading
+                 void methodOne(int x, int y, int z);      - Method Overloading
+                 int methodOne(int x, double w):           - Method Overloading
+
+  # Method Overriding
+
+           - Changing the definition of the method in a derived class
+           - for method overriding just put @Override keyword above method definition in sub class
+           - syntax:
+                       @Override
+                       public return_type methodName()
+                       {
+                           statement;
+                       }
+
+  # pass by value & pass by reference
+
+           - search more about this topic
+
+  //Note: Most methods in Java are 'Virtual' by default except static methods and private methods
+
+  # Inheritance
+
+           1. Single Inheritance
+               - A single derived class is inherited from base class
+               -  syntax:
+                           public class Base {
+                               data_members & memberFunctions();
+                           }
+
+                           public class derived extends  Base {
+                               statement;
+                           }
+
+           2.
+
+
+
+          # Abstract Classes
+               -  Abstract class is class of something that doesn't exist... it is more like a class of characteristics
+               - syntax:
+                           public abstract class ClassName {
+                               body;
+                           }
+
+          # Abstract Methods
+               - when a method  is made abstract it cannot be defined or  have a body. It's designed to be overridden
+               - ends with ';' and is usually declared inside abstract class
+               - syntax:
+                           public abstract void methodName();
+
+          # Polymorphism
+               - important  stuff
+
+          # Constructors
+               - Constructor is a special member function which is used to initialise a object
+               - gets invoked automatically when object is created
+               - if parameterised constructor is defined then default constructor should be compulsorily defined
+               - always public
+               - name same as class name
+
+               1. Default Constructor
+                   - syntax:
+                               public ClassName()
+                               {
+                                   statement;
+                               }
+
+               2. Parameterised Constructor
+                   - syntax:
+                               public ClassName(data_type var_name1, data_type var_name2)
+                               {
+                                   statement;
+                               }
+                   - syntax to call parameterised constructor:
+                       ClassName obj = new ClassName(arg1,arg2);  //pass the args to the parameterised constructor
+
+               3. Copy Constructor
+
+           # Super keyword
+               - used to access/invoke  members of base class from derived class
+               - syntax:
+                       super.methodeName();        // that methodName can be replaced by any particular data_member or memberFunction of base class
+
+            # Interface
+               - interfaces are very similar to classes but interfaces are specifically used to define behaviour and  are then implemented
+               -
+
+
+            # final methods
+               - prevents overriding of a method in further derived classes
+               - syntax:
+                           public final return_type methodName()
+                           {
+                               statement;
+                           }
+
+            # final class
+               - prevents class from extending further
+               - syntax:
+                       public final class ClassName{
+                           body;
+                       }
+
+             # enumeration - learn more about this
+
+  \*/
+
+  }
+
+  ```
+
+  ```
 
 }
